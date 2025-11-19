@@ -19,3 +19,34 @@ Our goal: **Keep the developer account active for the next 67 days and beyond** 
 ---
 
 ## 📂 Repository Structure
+
+---
+
+## 🛠 Tech Stack
+- **Microsoft Graph API** (v1.0 & beta endpoints)
+- **Power Automate** for workflow automation
+- **Node.js** for scripting Graph API calls
+- **SharePoint & Teams** for collaboration signals
+- **Planner & Outlook** for task and communication automation
+
+---
+
+## 📅 Activity Log
+### UC Day 01 – Repo Initialization ✅
+- Created repo structure: `/docs`, `/scripts`, `/flows`, `/samples`
+- Added README.md template
+- Commit message: `UC Day 01 – Repo Initialization`
+
+### UC Day 02 – Next Steps
+- Add **GettingStarted.md** in `/docs` with setup instructions
+- Create first **Node.js script** in `/scripts` (Graph API: list users)
+- Add **sample JSON payloads** in `/samples` (Teams channel creation)
+- Export one **Power Automate flow** and place in `/flows`
+
+---
+
+## ✅ How to Get Started
+1. **Install Node.js**: Download here
+2. **Install Microsoft Graph SDK**:
+   ```bash
+   npm install @microsoft/microsoft-graph-client isomorphic-fetch
