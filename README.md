@@ -42,6 +42,11 @@ Our goal: **Keep the developer account active for the next 67 days and beyond** 
 - Create first **Node.js script** in `/scripts` (Graph API: list users)
 - Add **sample JSON payloads** in `/samples` (Teams channel creation)
 - Export one **Power Automate flow** and place in `/flows`
+- Ran list-users.js successfully (Graph API – Client Credentials)
+- Keep secrets safe
+Ensure .env is NOT committed.
+.gitignore includes .env and node_modules/.
+
 
 ---
 
