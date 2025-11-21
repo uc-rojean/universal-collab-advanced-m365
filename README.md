@@ -62,3 +62,8 @@ Ensure .env is NOT committed.
   - create-planner-task.js
 - Added sample JSON payloads for Teams and Planner
 - Updated permissions for Graph API
+
+### UC Day 04 – Automation & Integration
+- Plan Power Automate flow integration
+- Plan Outlook email automation
+- Add sample JSON payloads for Planner and Outlook
