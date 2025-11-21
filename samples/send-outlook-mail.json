@@ -1,0 +1,17 @@
+{
+  "message": {
+    "subject": "UC Day 04 Automation",
+    "body": {
+      "contentType": "Text",
+      "content": "This is an automated email from Universal Collab."
+    },
+    "toRecipients": [
+      {
+        "emailAddress": {
+          "address": "someone@example.com"
+        }
+      }
+    ]
+  },
+  "saveToSentItems": "true"
+}
