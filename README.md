@@ -57,6 +57,8 @@ Ensure .env is NOT committed.
    npm install @microsoft/microsoft-graph-client isomorphic-fetch
 
 ### UC Day 03 – Advanced Activities
-- Plan to create Teams channel script
-- Plan to create Planner task script
-- Update permissions for Graph API
+- Created placeholder scripts:
+  - create-teams-channel.js
+  - create-planner-task.js
+- Added sample JSON payloads for Teams and Planner
+- Updated permissions for Graph API
