@@ -55,3 +55,8 @@ Ensure .env is NOT committed.
 2. **Install Microsoft Graph SDK**:
    ```bash
    npm install @microsoft/microsoft-graph-client isomorphic-fetch
+
+### UC Day 03 – Advanced Activities
+- Plan to create Teams channel script
+- Plan to create Planner task script
+- Update permissions for Graph API
