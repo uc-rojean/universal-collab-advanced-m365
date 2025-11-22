@@ -1,1 +1,53 @@
-# UC Day 05: Placeholder for GitHub Actions workflow
+
+# UC Day 05: Starter GitHub Actions workflow
+name: UC Automation
+
+on:
+  push:
+    branches: [ "main" ]  # run when you push to main
+  schedule:
+    - cron: "0 1 * * *"   # run daily at 01:00 UTC (~09:00 in GMT+8)
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+
+    # Pass secrets into the job as environment variables (safe)
+    env:
+      TENANT_ID: ${{ secrets.TENANT_ID }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+
+    steps:
+      # 1) Checkout your repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2) Setup Node.js (choose an LTS version you installed locally, e.g., 18)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 3) Install dependencies
+      - name: Install dependencies
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm install @microsoft/microsoft-graph-client isomorphic-fetch dotenv
+
+      # 4) Create a temporary .env file from secrets (not committed)
+      - name: Create .env from secrets
+        run: |
+          cat > .env << 'EOF'
+          TENANT_ID=${TENANT_ID}
+          CLIENT_ID=${CLIENT_ID}
+          CLIENT_SECRET=${CLIENT_SECRET}
+          EOF
+
+      # 5) Run a script (start simple: list users)
+      - name: Run list-users.js
+        run: node scripts/list-users.js
+
+      # 6) (Optional) Print a success marker
+      - name: Done
+        run: echo "UC Automation completed ✅"
