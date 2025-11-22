@@ -72,3 +72,6 @@ Ensure .env is NOT committed.
 - Plan batch Graph API requests
 - Plan GitHub Actions workflow for automation
 - Prepare JSON samples for batch operations
+- Created placeholder JSON files for batch operations:
+  - batch-create-teams.json
+  - batch-create-planner.json
