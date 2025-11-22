@@ -31,10 +31,11 @@ jobs:
           node-version: '18'
 
       # 3) Install dependencies
-      - name: Install dependencies
+
+      - name: Install required packages (no package.json)
         run: |
-          npm ci || npm install
           npm install dotenv @microsoft/microsoft-graph-client isomorphic-fetch
+
 
       # 4) Create a temporary .env file from secrets (not committed)
       - name: Create .env from secrets
