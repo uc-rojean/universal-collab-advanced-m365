@@ -41,8 +41,14 @@ jobs:
           EOF
 
       # --- Diagnostics ---
-      - name: Debug – show working directory
-        run: pwd
+- name: Debug – show working directory
+  run: pwd
+
+- name: Debug – list scripts folder
+  run: |
+    echo "Listing ./scripts"
+    ls -la ./scripts || echo "No ./scripts folder"
+
 
       - name: Debug – list files
         run: ls -la
