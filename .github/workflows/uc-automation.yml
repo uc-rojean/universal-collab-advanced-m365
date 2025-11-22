@@ -1,12 +1,13 @@
 
-# UC Day 05: Starter GitHub Actions workflow
+# UC Day 05: Starter GitHub Actions workflow (with diagnostics)
 name: UC Automation
 
 on:
+  workflow_dispatch:        # allow manual runs from the Actions tab
   push:
-    branches: [ "main" ]  # run when you push to main
+    branches: [ "main" ]    # run when you push to main
   schedule:
-    - cron: "0 1 * * *"   # run daily at 01:00 UTC (~09:00 in GMT+8)
+    - cron: "0 1 * * *"     # run daily at 01:00 UTC (~09:00 in GMT+8)
 
 jobs:
   run-scripts:
@@ -23,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2) Setup Node.js (choose an LTS version you installed locally, e.g., 18)
+      # 2) Setup Node.js (choose an LTS version; 18 is good)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -32,8 +33,8 @@ jobs:
       # 3) Install dependencies
       - name: Install dependencies
         run: |
-          npm init -y >/dev/null 2>&1 || true
-          npm install @microsoft/microsoft-graph-client isomorphic-fetch dotenv
+          npm ci || npm install
+          npm install dotenv @microsoft/microsoft-graph-client isomorphic-fetch
 
       # 4) Create a temporary .env file from secrets (not committed)
       - name: Create .env from secrets
@@ -43,6 +44,25 @@ jobs:
           CLIENT_ID=${CLIENT_ID}
           CLIENT_SECRET=${CLIENT_SECRET}
           EOF
+
+      # --- Quick Diagnostics (safe; no secret values printed) ---
+      - name: Debug – show working directory
+        run: pwd
+
+      - name: Debug – list files
+        run: ls -la
+
+      - name: Debug – print .env (masked)
+        run: |
+          echo "TENANT_ID set? -> ${TENANT_ID:+yes}"
+          echo "CLIENT_ID set? -> ${CLIENT_ID:+yes}"
+          echo "CLIENT_SECRET set? -> ${CLIENT_SECRET:+yes}"
+          if [ -f ".env" ]; then
+            echo ".env exists ✅"
+            awk -F= '{print $1"=***"}' .env
+          else
+            echo ".env missing ❌"
+          fi
 
       # 5) Run a script (start simple: list users)
       - name: Run list-users.js
