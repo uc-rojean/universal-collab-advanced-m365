@@ -1,1 +1,32 @@
 // UC Day 05: Placeholder for batch Teams channel creation
+
+{
+  "requests": [
+    {
+      "id": "1",
+      "method": "POST",
+      "url": "/teams/0b329d81-2325-448a-bae6-c08fb444083/channels",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "displayName": "UC Alpha",
+        "description": "Channel for UC Alpha",
+        "membershipType": "standard"
+      }
+    },
+    {
+      "id": "2",
+      "method": "POST",
+      "url": "/teams/{team-id}/channels",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "displayName": "UC Beta",
+        "description": "Channel for UC Beta",
+        "membershipType": "standard"
+      }
+    }
+  ]
+}
