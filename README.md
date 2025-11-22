@@ -67,3 +67,8 @@ Ensure .env is NOT committed.
 - Plan Power Automate flow integration
 - Plan Outlook email automation
 - Add sample JSON payloads for Planner and Outlook
+
+### UC Day 05 – Advanced Automation
+- Plan batch Graph API requests
+- Plan GitHub Actions workflow for automation
+- Prepare JSON samples for batch operations
