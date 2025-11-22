@@ -1,5 +1,5 @@
 
-# UC Day 05: GitHub Actions workflow (CommonJS .cjs + robust env + diagnostics)
+# UC Day 05: GitHub Actions workflow (CommonJS .cjs + correct env expansion + diagnostics)
 name: UC Automation
 
 on:
@@ -13,7 +13,7 @@ jobs:
   run-scripts:
     runs-on: ubuntu-latest
 
-    # 1) Map GitHub Secrets to job environment variables
+    # Map GitHub Secrets to job environment variables (used by steps)
     env:
       TENANT_ID: ${{ secrets.TENANT_ID }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
@@ -28,21 +28,21 @@ jobs:
         with:
           node-version: '18'
 
-      # 2) Install required packages (no package.json lock needed)
+      # Install packages needed by the script
       - name: Install required packages
         run: |
           npm install dotenv @microsoft/microsoft-graph-client isomorphic-fetch
 
-      # 3) Create .env from secrets in repo root (for dotenv in your script)
+      # Create .env in repo root with expanded values (UNQUOTED EOF so variables expand)
       - name: Create .env from secrets
         run: |
-          cat > .env << 'EOF'
+          cat > .env << EOF
           TENANT_ID=${TENANT_ID}
           CLIENT_ID=${CLIENT_ID}
           CLIENT_SECRET=${CLIENT_SECRET}
           EOF
 
-      # --- Diagnostics (no secret values printed) ---
+      # --- Diagnostics (safe: masks values) ---
       - name: Debug – show working directory
         run: pwd
 
@@ -66,9 +66,9 @@ jobs:
           echo "CLIENT_ID set in job env? -> ${CLIENT_ID:+yes}"
           echo "CLIENT_SECRET set in job env? -> ${CLIENT_SECRET:+yes}"
 
-      # 4) Run the CommonJS script (.cjs) from repo root
+      # Run the CommonJS script (.cjs) and ALSO pass env directly
       - name: Run list-users.cjs
-        env:                      # pass env directly too (belt & suspenders)
+        env:
           TENANT_ID: ${{ secrets.TENANT_ID }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
