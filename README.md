@@ -68,10 +68,28 @@ Ensure .env is NOT committed.
 - Plan Outlook email automation
 - Add sample JSON payloads for Planner and Outlook
 
-### UC Day 05 – Advanced Automation
-- Plan batch Graph API requests
-- Plan GitHub Actions workflow for automation
-- Prepare JSON samples for batch operations
-- Created placeholder JSON files for batch operations:
-  - batch-create-teams.json
-  - batch-create-planner.json
+
+## UC Day 05 – Advanced Automation
+
+### Overview
+UC Day 05 focuses on automating Microsoft 365 tasks using Microsoft Graph API and GitHub Actions. This includes:
+- Setting up GitHub Actions for scheduled and manual runs.
+- Securely managing secrets via GitHub Repository Secrets.
+- Running Node.js scripts for Microsoft Graph operations (e.g., listing users).
+- Preparing batch request samples for Teams and Planner.
+
+### Completed Steps
+- ✅ Created `.github/workflows/uc-automation.yml` with triggers (manual, push, schedule).
+- ✅ Configured secure environment variables using GitHub Secrets (`TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`).
+- ✅ Implemented Node.js script `scripts/list-users.cjs` to list users via Microsoft Graph.
+- ✅ Verified workflow success and resolved environment variable issues.
+
+### Next Steps
+- Update batch JSON files for Teams and Planner operations.
+- Add more scripts for Teams channel creation and Planner tasks.
+- Document troubleshooting and best practices in `/docs/UC-Day-05-Guide.md`.
+
+### Security Notes
+- Never commit `.env` files or secrets.
+- Rotate Azure client secrets regularly.
+
