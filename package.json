@@ -3,7 +3,6 @@
   "name": "universal-collab-advanced-m365",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "list-users": "node scripts/list-users.js"
   },
