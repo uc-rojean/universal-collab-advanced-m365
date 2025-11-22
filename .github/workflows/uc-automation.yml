@@ -59,8 +59,8 @@ jobs:
             echo ".env missing ❌"
           fi
 
-      - name: Run list-users.js
-        run: node scripts/list-users.js
+      - name: Run list-users.cjs
+        run: node scripts/list-users.cjs
 
       - name: Done
         run: echo "UC Automation completed ✅"
