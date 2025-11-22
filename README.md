@@ -69,27 +69,34 @@ Ensure .env is NOT committed.
 - Add sample JSON payloads for Planner and Outlook
 
 
-## UC Day 05 – Advanced Automation
+## ✅ UC Day 05 – Status & Updates
 
 ### Overview
-UC Day 05 focuses on automating Microsoft 365 tasks using Microsoft Graph API and GitHub Actions. This includes:
-- Setting up GitHub Actions for scheduled and manual runs.
-- Securely managing secrets via GitHub Repository Secrets.
-- Running Node.js scripts for Microsoft Graph operations (e.g., listing users).
-- Preparing batch request samples for Teams and Planner.
+UC Day 05 focused on **cleaning and securing our GitHub Actions workflow** and preparing for batch automation. We:
+- Removed debug clutter from workflow
+- Passed secrets securely using GitHub Repository Secrets
+- Verified successful run of `list-users.cjs`
+- Drafted batch request samples for Teams and Planner
+
+---
 
 ### Completed Steps
-- ✅ Created `.github/workflows/uc-automation.yml` with triggers (manual, push, schedule).
-- ✅ Configured secure environment variables using GitHub Secrets (`TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`).
-- ✅ Implemented Node.js script `scripts/list-users.cjs` to list users via Microsoft Graph.
-- ✅ Verified workflow success and resolved environment variable issues.
+- ✅ Workflow cleaned and tested
+- ✅ Secrets mapped correctly (TENANT_ID, CLIENT_ID, CLIENT_SECRET)
+- ✅ Node script runs successfully in CI
+- ✅ Batch JSON samples created in `/samples/`
+
+---
+
+### Documentation
+Full details and troubleshooting tips are in:
+[UC-Day-05-Guide.md](./UC-Day-05-Guide.md)
+
+---
 
 ### Next Steps
-- Update batch JSON files for Teams and Planner operations.
-- Add more scripts for Teams channel creation and Planner tasks.
-- Document troubleshooting and best practices in `/docs/UC-Day-05-Guide.md`.
+- Parameterize batch samples with real IDs
+- Prepare UC Day 06 for `$batch` implementation (Teams + Planner)
+- Expand permissions for Graph API calls
 
-### Security Notes
-- Never commit `.env` files or secrets.
-- Rotate Azure client secrets regularly.
-
+---
