@@ -1,5 +1,35 @@
+
 {
-  "title": "UC Day 03 Task",
-  "assignments": {},
-  "dueDateTime": "2025-11-25T17:00:00Z"
+  "requests": [
+    {
+      "id": "1",
+      "method": "POST",
+      "url": "/planner/tasks",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "planId": "{plan-id}",
+        "bucketId": "{bucket-id}",
+        "title": "UC Day 05 – Batch Task A",
+        "assignments": {},
+        "dueDateTime": "2025-12-01T09:00:00Z"
+      }
+    },
+    {
+      "id": "2",
+      "method": "POST",
+      "url": "/planner/tasks",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "planId": "{plan-id}",
+        "bucketId": "{bucket-id}",
+        "title": "UC Day 05 – Batch Task B",
+        "assignments": {},
+        "dueDateTime": "2025-12-02T09:00:00Z"
+      }
+    }
+  ]
 }
