@@ -1,19 +1,19 @@
 
-# UC Day 05: GitHub Actions workflow (CommonJS .cjs + correct env expansion + diagnostics)
+# UC Day 05: GitHub Actions workflow (clean & minimal)
 name: UC Automation
 
 on:
-  workflow_dispatch:        # allow manual runs from Actions tab
+  workflow_dispatch:            # allow manual runs from Actions tab
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]        # run on push to main
   schedule:
-    - cron: "0 1 * * *"     # daily at 01:00 UTC (~09:00 GMT+8)
+    - cron: "0 1 * * *"         # optional: daily at 01:00 UTC (~09:00 GMT+8)
 
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
 
-    # Map GitHub Secrets to job environment variables (used by steps)
+    # Map GitHub Repository Secrets to environment variables (safe)
     env:
       TENANT_ID: ${{ secrets.TENANT_ID }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
@@ -28,45 +28,11 @@ jobs:
         with:
           node-version: '18'
 
-      # Install packages needed by the script
       - name: Install required packages
         run: |
           npm install dotenv @microsoft/microsoft-graph-client isomorphic-fetch
 
-      # Create .env in repo root with expanded values (UNQUOTED EOF so variables expand)
-      - name: Create .env from secrets
-        run: |
-          cat > .env << EOF
-          TENANT_ID=${TENANT_ID}
-          CLIENT_ID=${CLIENT_ID}
-          CLIENT_SECRET=${CLIENT_SECRET}
-          EOF
-
-      # --- Diagnostics (safe: masks values) ---
-      - name: Debug – show working directory
-        run: pwd
-
-      - name: Debug – list repo root
-        run: ls -la
-
-      - name: Debug – list scripts folder
-        run: |
-          echo "Listing ./scripts"
-          ls -la ./scripts || echo "No ./scripts folder"
-
-      - name: Debug – check .env presence and keys (masked)
-        run: |
-          if [ -f ".env" ]; then
-            echo ".env exists ✅"
-            awk -F= '{print $1"=***"}' .env
-          else
-            echo ".env missing ❌"; exit 1
-          fi
-          echo "TENANT_ID set in job env? -> ${TENANT_ID:+yes}"
-          echo "CLIENT_ID set in job env? -> ${CLIENT_ID:+yes}"
-          echo "CLIENT_SECRET set in job env? -> ${CLIENT_SECRET:+yes}"
-
-      # Run the CommonJS script (.cjs) and ALSO pass env directly
+      # Run your CommonJS script and pass env directly (no .env file needed)
       - name: Run list-users.cjs
         env:
           TENANT_ID: ${{ secrets.TENANT_ID }}
