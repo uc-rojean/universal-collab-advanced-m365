@@ -1,5 +1,5 @@
 
-# UC Day 05: GitHub Actions workflow (diagnostics + no package.json install)
+# UC Day 05: GitHub Actions workflow (CommonJS path + diagnostics)
 name: UC Automation
 
 on:
@@ -27,8 +27,8 @@ jobs:
         with:
           node-version: '18'
 
-      # Install packages directly (no package.json present)
-      - name: Install required packages (no package.json)
+      # Install required packages (no package.json lock needed)
+      - name: Install required packages
         run: |
           npm install dotenv @microsoft/microsoft-graph-client isomorphic-fetch
 
@@ -40,31 +40,19 @@ jobs:
           CLIENT_SECRET=${CLIENT_SECRET}
           EOF
 
-      # --- Diagnostics ---
-- name: Debug – show working directory
-  run: pwd
+      # --- Diagnostics (where am I? what files exist?) ---
+      - name: Debug – show working directory
+        run: pwd
 
-- name: Debug – list scripts folder
-  run: |
-    echo "Listing ./scripts"
-    ls -la ./scripts || echo "No ./scripts folder"
-
-
-      - name: Debug – list files
+      - name: Debug – list repo root
         run: ls -la
 
-      - name: Debug – print .env (masked)
+      - name: Debug – list scripts folder
         run: |
-          echo "TENANT_ID set? -> ${TENANT_ID:+yes}"
-          echo "CLIENT_ID set? -> ${CLIENT_ID:+yes}"
-          echo "CLIENT_SECRET set? -> ${CLIENT_SECRET:+yes}"
-          if [ -f ".env" ]; then
-            echo ".env exists ✅"
-            awk -F= '{print $1"=***"}' .env
-          else
-            echo ".env missing ❌"
-          fi
+          echo "Listing ./scripts"
+          ls -la ./scripts || echo "No ./scripts folder"
 
+      # Run CommonJS script (we renamed to .cjs)
       - name: Run list-users.cjs
         run: node scripts/list-users.cjs
 
