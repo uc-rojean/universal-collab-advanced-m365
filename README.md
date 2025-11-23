@@ -1,5 +1,5 @@
-# 🌟 Universal Collab – Advanced Microsoft 365 Developer Activities 🚀
 
+# 🌟 Universal Collab – Advanced Microsoft 365 Developer Activities 🚀
 Welcome to **Universal Collab**, a repository dedicated to **advanced Microsoft 365 development activities** designed to maintain and extend the Microsoft 365 Developer E5 subscription through real, meaningful development work.
 
 ---
@@ -19,7 +19,6 @@ Our goal: **Keep the developer account active for the next 67 days and beyond** 
 ---
 
 ## 📂 Repository Structure
-
 ---
 
 ## 🛠 Tech Stack
@@ -32,6 +31,7 @@ Our goal: **Keep the developer account active for the next 67 days and beyond** 
 ---
 
 ## 📅 Activity Log
+
 ### UC Day 01 – Repo Initialization ✅
 - Created repo structure: `/docs`, `/scripts`, `/flows`, `/samples`
 - Added README.md template
@@ -43,18 +43,11 @@ Our goal: **Keep the developer account active for the next 67 days and beyond** 
 - Add **sample JSON payloads** in `/samples` (Teams channel creation)
 - Export one **Power Automate flow** and place in `/flows`
 - Ran list-users.js successfully (Graph API – Client Credentials)
-- Keep secrets safe
-Ensure .env is NOT committed.
+- Keep secrets safe  
+Ensure .env is NOT committed.  
 .gitignore includes .env and node_modules/.
 
-
 ---
-
-## ✅ How to Get Started
-1. **Install Node.js**: Download here
-2. **Install Microsoft Graph SDK**:
-   ```bash
-   npm install @microsoft/microsoft-graph-client isomorphic-fetch
 
 ### UC Day 03 – Advanced Activities
 - Created placeholder scripts:
@@ -68,9 +61,9 @@ Ensure .env is NOT committed.
 - Plan Outlook email automation
 - Add sample JSON payloads for Planner and Outlook
 
+---
 
 ## ✅ UC Day 05 – Status & Updates
-
 ### Overview
 UC Day 05 focused on **cleaning and securing our GitHub Actions workflow** and preparing for batch automation. We:
 - Removed debug clutter from workflow
@@ -89,8 +82,8 @@ UC Day 05 focused on **cleaning and securing our GitHub Actions workflow** and p
 ---
 
 ### Documentation
-Full details and troubleshooting tips are in:
-[UC-Day-05-Guide.md](./UC-Day-05-Guide.md)
+Full details and troubleshooting tips are in:  
+UC-Day-05-Guide.md
 
 ---
 
@@ -98,5 +91,34 @@ Full details and troubleshooting tips are in:
 - Parameterize batch samples with real IDs
 - Prepare UC Day 06 for `$batch` implementation (Teams + Planner)
 - Expand permissions for Graph API calls
+
+---
+
+## ✅ UC Day 06 – Status & Updates
+### Overview
+UC Day 06 focused on **implementing Microsoft Graph `$batch` operations** to automate multiple requests in a single call. We:
+- Expanded Azure permissions for Teams and Planner
+- Created `scripts/run-batch.cjs` to handle batch requests
+- Updated GitHub Actions workflow to include batch step
+- Successfully tested batch execution
+
+---
+
+### Completed Steps
+- ✅ Permissions validated (Channel.Create, Team.ReadBasic.All, Tasks.ReadWrite.All)
+- ✅ Batch script created and tested
+- ✅ Workflow updated with new step for batch operations
+- ✅ Batch run successful in CI
+
+---
+
+### Documentation
+Full details and troubleshooting tips are in:  
+[UC-Day-06-Guide.md](./
+
+### Next Steps
+- Add Teams utilities (list channels, create single channel)
+- Add Planner utilities (list plans, create single task)
+- Enhance workflow with input-based triggers for specific scripts
 
 ---
