@@ -40,7 +40,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: node scripts/list-users.cjs
 
-      # 🔥 New step for UC Day 06: run batch operations (Teams + Planner)
+      # 🔥 UC Day 06: run batch operations
       - name: Run batch operations
         env:
           TENANT_ID: ${{ secrets.TENANT_ID }}
@@ -48,19 +48,20 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: node scripts/run-batch.cjs
 
-- name: Run list-channels.cjs
-  env:
-    TENANT_ID: ${{ secrets.TENANT_ID }}
-    CLIENT_ID: ${{ secrets.CLIENT_ID }}
-    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-  run: node scripts/list-channels.cjs
+      # ✅ UC Day 07: new steps
+      - name: Run list-channels.cjs
+        env:
+          TENANT_ID: ${{ secrets.TENANT_ID }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        run: node scripts/list-channels.cjs
 
-- name: Run list-plans.cjs
-  env:
-    TENANT_ID: ${{ secrets.TENANT_ID }}
-    CLIENT_ID: ${{ secrets.CLIENT_ID }}
-    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-  run: node scripts/list-plans.cjs
+      - name: Run list-plans.cjs
+        env:
+          TENANT_ID: ${{ secrets.TENANT_ID }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        run: node scripts/list-plans.cjs
 
       - name: Done
         run: echo "UC Automation completed ✅"
