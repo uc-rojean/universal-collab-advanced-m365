@@ -83,7 +83,7 @@ UC Day 05 focused on **cleaning and securing our GitHub Actions workflow** and p
 
 ### Documentation
 Full details and troubleshooting tips are in:  
-UC-Day-05-Guide.md
+[UC-Day-05-Guide.md](./UC-Day-05-Guide.md)
 
 ---
 
@@ -114,7 +114,7 @@ UC Day 06 focused on **implementing Microsoft Graph `$batch` operations** to aut
 
 ### Documentation
 Full details and troubleshooting tips are in:  
-[UC-Day-06-Guide.md](./
+[UC-Day-06-Guide.md](./UC-Day-06-Guide.md)
 
 ### Next Steps
 - Add Teams utilities (list channels, create single channel)
@@ -122,3 +122,33 @@ Full details and troubleshooting tips are in:
 - Enhance workflow with input-based triggers for specific scripts
 
 ---
+
+## ✅ UC Day 07 – Status & Updates
+### Overview
+UC Day 07 focused on **creating Teams and Planner utility scripts** for modular automation. We:
+- Built `scripts/list-channels.cjs` to list channels in a Team
+- Built `scripts/list-plans.cjs` to list Planner plans
+- Updated workflow to include new steps for these scripts
+
+---
+
+### Completed Steps
+- ✅ Teams utility script created
+- ✅ Planner utility script created
+- ✅ Workflow updated with new steps
+- ✅ Scripts tested successfully in CI
+
+---
+
+### Documentation
+Full details and troubleshooting tips are in:
+[UC-Day-07-Guide.md](./UC-Day-07-Guide.md)
+
+---
+
+### Next Steps
+- Add create-channel and create-task scripts
+- Enhance workflow with input-based triggers
+- Prepare UC Day 08 for reporting and notifications
+
+
