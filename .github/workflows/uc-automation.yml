@@ -48,5 +48,19 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: node scripts/run-batch.cjs
 
+- name: Run list-channels.cjs
+  env:
+    TENANT_ID: ${{ secrets.TENANT_ID }}
+    CLIENT_ID: ${{ secrets.CLIENT_ID }}
+    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  run: node scripts/list-channels.cjs
+
+- name: Run list-plans.cjs
+  env:
+    TENANT_ID: ${{ secrets.TENANT_ID }}
+    CLIENT_ID: ${{ secrets.CLIENT_ID }}
+    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  run: node scripts/list-plans.cjs
+
       - name: Done
         run: echo "UC Automation completed ✅"
