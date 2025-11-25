@@ -14,17 +14,11 @@ This repo showcases **advanced integrations and automation** using:
 - Outlook
 - GitHub Actions
 
-Our goal: **Keep the developer account active for the next cycle and beyond** by performing high-impact activities that demonstrate real development usage.
+Our goal: **Keep the developer account active for the next 67 days and beyond** by performing high-impact activities that demonstrate real development usage.
 
 ---
 
 ## 📂 Repository Structure
-- `/docs` – Guides for each UC Day
-- `/scripts` – Node.js scripts for Graph API calls
-- `/samples` – JSON payload samples
-- `/flows` – Power Automate flows
-- `/reports` – Generated reports
-
 ---
 
 ## 🛠 Tech Stack
@@ -38,61 +32,149 @@ Our goal: **Keep the developer account active for the next cycle and beyond** by
 
 ## 📅 Activity Log
 
-### ✅ UC Day 05 – Status & Updates
-**Overview:**  
-Cleaned GitHub Actions workflow and prepared batch automation.  
-**Completed Steps:**  
-- ✅ Workflow cleaned and tested  
-- ✅ Secrets mapped correctly  
-- ✅ Node script runs successfully in CI  
-- ✅ Batch JSON samples created in `/samples/`  
-**Documentation:**  
-UC-Day-05-Guide.md  
-**Next Steps:**  
-Prepare UC Day 06 for `$batch` implementation.
+### UC Day 01 – Repo Initialization ✅
+- Created repo structure: `/docs`, `/scripts`, `/flows`, `/samples`
+- Added README.md template
+- Commit message: `UC Day 01 – Repo Initialization`
+
+### UC Day 02 – Next Steps
+- Add **GettingStarted.md** in `/docs` with setup instructions
+- Create first **Node.js script** in `/scripts` (Graph API: list users)
+- Add **sample JSON payloads** in `/samples` (Teams channel creation)
+- Export one **Power Automate flow** and place in `/flows`
+- Ran list-users.js successfully (Graph API – Client Credentials)
+- Keep secrets safe  
+Ensure .env is NOT committed.  
+.gitignore includes .env and node_modules/.
 
 ---
 
-### ✅ UC Day 06 – Status & Updates
-**Overview:**  
-Implemented Microsoft Graph `$batch` operations for Teams and Planner.  
-**Completed Steps:**  
-- ✅ Permissions validated  
-- ✅ Batch script created and tested  
-- ✅ Workflow updated with batch step  
-- ✅ Batch run successful in CI  
-**Documentation:**  
-UC-Day-06-Guide.md  
-**Next Steps:**  
-Add Teams and Planner utility scripts.
+### UC Day 03 – Advanced Activities
+- Created placeholder scripts:
+  - create-teams-channel.js
+  - create-planner-task.js
+- Added sample JSON payloads for Teams and Planner
+- Updated permissions for Graph API
+
+### UC Day 04 – Automation & Integration
+- Plan Power Automate flow integration
+- Plan Outlook email automation
+- Add sample JSON payloads for Planner and Outlook
 
 ---
 
-### ✅ UC Day 07 – Status & Updates
-**Overview:**  
-Created modular scripts for Teams and Planner utilities.  
-**Completed Steps:**  
-- ✅ Teams script: list channels  
-- ✅ Planner script: list plans  
-- ✅ Workflow updated with new steps  
-- ✅ Tested successfully  
-**Documentation:**  
-[C-Day-07-Guide.md  
-**Next Steps:**  
-Enhance workflow with input-based triggers.
+## ✅ UC Day 05 – Status & Updates
+### Overview
+UC Day 05 focused on **cleaning and securing our GitHub Actions workflow** and preparing for batch automation. We:
+- Removed debug clutter from workflow
+- Passed secrets securely using GitHub Repository Secrets
+- Verified successful run of `list-users.cjs`
+- Drafted batch request samples for Teams and Planner
+
+---
+
+### Completed Steps
+- ✅ Workflow cleaned and tested
+- ✅ Secrets mapped correctly (TENANT_ID, CLIENT_ID, CLIENT_SECRET)
+- ✅ Node script runs successfully in CI
+- ✅ Batch JSON samples created in `/samples/`
+
+---
+
+### Documentation
+Full details and troubleshooting tips are in:  
+[UC-Day-05-Guide.md](./UC-Day-05-Guide.md)
+
+---
+
+### Next Steps
+- Parameterize batch samples with real IDs
+- Prepare UC Day 06 for `$batch` implementation (Teams + Planner)
+- Expand permissions for Graph API calls
+
+---
+
+## ✅ UC Day 06 – Status & Updates
+### Overview
+UC Day 06 focused on **implementing Microsoft Graph `$batch` operations** to automate multiple requests in a single call. We:
+- Expanded Azure permissions for Teams and Planner
+- Created `scripts/run-batch.cjs` to handle batch requests
+- Updated GitHub Actions workflow to include batch step
+- Successfully tested batch execution
+
+---
+
+### Completed Steps
+- ✅ Permissions validated (Channel.Create, Team.ReadBasic.All, Tasks.ReadWrite.All)
+- ✅ Batch script created and tested
+- ✅ Workflow updated with new step for batch operations
+- ✅ Batch run successful in CI
+
+---
+
+### Documentation
+Full details and troubleshooting tips are in:  
+[UC-Day-06-Guide.md](./UC-Day-06-Guide.md)
+
+### Next Steps
+- Add Teams utilities (list channels, create single channel)
+- Add Planner utilities (list plans, create single task)
+- Enhance workflow with input-based triggers for specific scripts
+
+---
+
+## ✅ UC Day 07 – Status & Updates
+### Overview
+UC Day 07 focused on **creating Teams and Planner utility scripts** for modular automation. We:
+- Built `scripts/list-channels.cjs` to list channels in a Team
+- Built `scripts/list-plans.cjs` to list Planner plans
+- Updated workflow to include new steps for these scripts
+
+---
+
+### Completed Steps
+- ✅ Teams utility script created
+- ✅ Planner utility script created
+- ✅ Workflow updated with new steps
+- ✅ Scripts tested successfully in CI
+
+---
+
+### Documentation
+Full details and troubleshooting tips are in:
+[UC-Day-07-Guide.md](./UC-Day-07-Guide.md)
+
+---
+
+### Next Steps
+- Add create-channel and create-task scripts
+- Enhance workflow with input-based triggers
+- Prepare UC Day 08 for reporting and notifications
+
+
+
 
 ---
 
 ### ✅ UC Day 08 – Status & Updates
 **Overview:**  
 Added reporting and optional notifications for transparency.  
+
+---
+
 **Completed Steps:**  
 - ✅ Created `generate-report.cjs`  
 - ✅ Updated workflow with report step  
 - ✅ Prepared optional email notifications logic  
-- ✅ Tested report script successfully  
+- ✅ Tested report script successfully
+
+---
+
 **Documentation:**  
-UC-Day-08-Guide.md  
+[UC-Day-08-Guide.md](./UC-Day-08-Guide.md)
+
+---
+
 **Next Steps:**  
 Implement file write for reports and add email notification script.
 
