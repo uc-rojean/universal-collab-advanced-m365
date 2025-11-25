@@ -1,24 +1,21 @@
 
 # UC Day 05: GitHub Actions workflow (clean & minimal)
 name: UC Automation
-
 on:
-  workflow_dispatch:            # allow manual runs from Actions tab
+  workflow_dispatch: # allow manual runs from Actions tab
   push:
-    branches: [ "main" ]        # run on push to main
+    branches: [ "main" ] # run on push to main
   schedule:
-    - cron: "0 1 * * *"         # optional: daily at 01:00 UTC (~09:00 GMT+8)
+    - cron: "0 1 * * *" # optional: daily at 01:00 UTC (~09:00 GMT+8)
 
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
-
     # Map GitHub Repository Secrets to environment variables (safe)
     env:
       TENANT_ID: ${{ secrets.TENANT_ID }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -63,5 +60,12 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: node scripts/list-plans.cjs
 
+      # ✅ UC Day 08: reporting
+      - name: Generate user snapshot report
+        env:
+          TENANT_ID: ${{ secrets.TENANT_ID }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        run: node scripts/generate-report.cjs
+
       - name: Done
-        run: echo "UC Automation completed ✅"
