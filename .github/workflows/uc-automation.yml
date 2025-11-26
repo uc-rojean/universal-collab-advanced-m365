@@ -1,10 +1,23 @@
 
-# UC Day 05: GitHub Actions workflow (clean & minimal)
+# UC Automation Workflow – Clean & Enhanced
 name: UC Automation
+
 on:
-  workflow_dispatch: # allow manual runs from Actions tab
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Choose script to run'
+        required: true
+        default: 'list-users'
+        type: choice
+        options:
+          - list-users
+          - run-batch
+          - list-channels
+          - list-plans
+          - generate-report
   push:
-    branches: [ "main" ] # run on push to main
+    branches: [ "main" ]
   schedule:
     - cron: "0 1 * * *" # optional: daily at 01:00 UTC (~09:00 GMT+8)
 
@@ -28,43 +41,26 @@ jobs:
         run: |
           npm install dotenv @microsoft/microsoft-graph-client isomorphic-fetch
 
-      # Existing script from Day 05
+      # Conditional steps based on input
       - name: Run list-users.cjs
+        if: ${{ github.event.inputs.action == 'list-users' }}
         run: node scripts/list-users.cjs
 
-      # 🔥 UC Day 06: run batch operations
       - name: Run batch operations
+        if: ${{ github.event.inputs.action == 'run-batch' }}
         run: node scripts/run-batch.cjs
 
-      # ✅ UC Day 07: new steps
       - name: Run list-channels.cjs
+        if: ${{ github.event.inputs.action == 'list-channels' }}
         run: node scripts/list-channels.cjs
 
       - name: Run list-plans.cjs
+        if: ${{ github.event.inputs.action == 'list-plans' }}
         run: node scripts/list-plans.cjs
 
-      # ✅ UC Day 08: reporting
       - name: Generate user snapshot report
+        if: ${{ github.event.inputs.action == 'generate-report' }}
         run: node scripts/generate-report.cjs
 
       - name: Done
         run: echo "UC Automation completed ✅"
-
-
-on:
-  workflow_dispatch:
-    inputs:
-      action:
-        description: 'Choose script to run'
-        required: true
-        default: 'list-users'
-        type: choice
-        options:
-          - list-users
-          - run-batch
-          - list-channels
-          - list-plans
-          - generate-report
-
-if: ${{ github.event.inputs.action == 'list-users' }}
-run: node scripts/list-users.cjs
