@@ -49,3 +49,22 @@ jobs:
 
       - name: Done
         run: echo "UC Automation completed ✅"
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Choose script to run'
+        required: true
+        default: 'list-users'
+        type: choice
+        options:
+          - list-users
+          - run-batch
+          - list-channels
+          - list-plans
+          - generate-report
+
+if: ${{ github.event.inputs.action == 'list-users' }}
+run: node scripts/list-users.cjs
