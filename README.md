@@ -180,4 +180,29 @@ Implement file write for reports and add email notification script.
 
 ---
 
-✅ Commit message suggestion:
+
+
+### ✅ UC Day 09 – Status & Updates
+**Overview:**  
+UC Day 09 focused on **hardening and polishing our automation** by introducing config management, error handling patterns, and workflow enhancements.
+
+---
+
+**Completed Steps:**  
+- ✅ Created `/config/uc.json` for non-secret IDs and options  
+- ✅ Planned error handling patterns (retry logic, structured logs)  
+- ✅ Enhanced workflow with input-based triggers and conditional steps  
+- ✅ Created UC-Day-09-Guide.md for documentation  
+
+---
+
+**Documentation:**  
+[UC-Day-09-Guide.md](./UC-Day-09-Guide.md)
+
+---
+
+**Next Steps:**  
+- Implement retry logic in scripts  
+- Add structured logging for API calls  
+- Prepare UC Day 10 roadmap for advanced reporting and notifications  
+
