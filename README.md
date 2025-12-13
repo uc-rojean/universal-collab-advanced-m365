@@ -241,3 +241,8 @@ UC Day 09 focused on **hardening and polishing our automation** by introducing c
 
 ## ✅ UC Day 16 – 53 days remaining (December 03, 2025) – Pending (Microsoft backend issue)
 
+
+---
+
+## ✅ UC Day 17 – 52 days remaining (December 04, 2025) – Pending (Microsoft backend issue)
+
