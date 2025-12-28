@@ -361,3 +361,43 @@ UC Day 09 focused on **hardening and polishing our automation** by introducing c
 
 ## ✅ UC Day 40 – 29 days remaining (December 27, 2025) – Pending (Microsoft backend issue)
 
+
+---
+
+## ✅ UC Day 40 – 29 days remaining (December 27, 2025 21:11 GMT+8) – DEV ACCOUNT RENEWED FOR 90 DAYS
+
+> **Status:** This repository is now **closed/archived**.  
+> **Reason:** Microsoft 365 Developer account has been **renewed for 90 days**. All future development activities will move to a new repository dedicated to the 90‑day cycle.
+
+- **What changes here?**  
+  - No new commits, issues, or pull requests will be accepted.  
+  - This README is updated for **final closure** only.  
+  - Historical logs and artifacts remain for reference.
+
+- **Where to continue?**  
+  - 👉 New repository: **_TBD_**  
+    <!-- TODO: Replace _TBD_ with the actual GitHub link once created. Example:
+    https://github.com/Universal-Collab/uc-90day-dev-activities-2026
+    -->
+
+- **Context:**  
+  - OneDrive/SharePoint are still in **read‑only mode** due to an ongoing backend issue.  
+  - We’ll proceed with the new 90‑day plan using safe, compliant development activities.
+    <!-- Internal note:
+    - Support remains engaged; responses have been inconsistent.
+    - Keep logs of UC Days in the new repo for clear audit trails.
+    -->
+
+---
+
+### 📌 Final Notes
+- This repo served as the foundation for our **pre‑renewal** activities and tracking.
+- For continuity and transparency, the **UC Day logs** and any non-sensitive documentation will be ported (or referenced) in the new repository’s roadmap.
+
+<!-- Closure metadata:
+- Closed by: Buddy (Rojean B. De Leon)
+- Tenant: l3y8.onmicrosoft.com
+- Closure timestamp: 2025-12-27 21:11 GMT+8
+- Reason: Dev account renewed for 90 days; migration to dedicated repo for the new cycle
+- Service context: OneDrive/SharePoint read-only persists; backend fix ETA remains unchanged
+-->
